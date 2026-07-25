@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competition — Teknovistafest</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="competition.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-400-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body class="page-competition">
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+        <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link active">Event <i class="fa-solid fa-chevron-down dropdown-arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="competition.html"><i class="fa-solid fa-trophy"></i> Competition</a></li>
+            <li><a href="talkshow.html"><i class="fa-solid fa-microphone"></i> Talkshow</a></li>
+          </ul>
+        </li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="contact.html" class="btn btn-ghost">Hubungi Panitia</a>
+        <a href="https://forms.gle/ContohLinkGFormAnda" class="btn btn-primary" target="_blank">Daftar Sekarang</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="comp-hero">
+    <canvas id="meshCanvas"></canvas>
+    <div class="comp-hero-content">
+      <span class="section-tag">Competition</span>
+      <h1 class="comp-title">IT Preneur: <span class="gradient-text">AI Business Competition</span></h1>
+      <p class="comp-desc">Kompetisi bisnis berbasis AI yang diselenggarakan dalam 2 tahap. Wujudkan ide startup-mu dan menangkan hadiah jutaan rupiah!</p>
+    </div>
+  </section>
+
+  <!-- KATEGORI -->
+  <section class="comp-section">
+    <div class="comp-container">
+      <div class="section-header">
+        <span class="section-tag">Main Category</span>
+        <h2 class="section-title">Kategori <span class="gradient-text">Kompetisi</span></h2>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div class="comp-icon">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <span class="comp-badge">AI + Business</span>
+            <h3>IT Preneur: AI Business Competition</h3>
+          </div>
+        </div>
+        <p class="comp-card-desc">
+          Kompetisi kewirausahaan teknologi yang menantang peserta untuk merancang ide bisnis inovatif berbasis <strong>Artificial Intelligence (AI)</strong>. Peserta dituntut untuk menggabungkan kreativitas bisnis dengan penerapan teknologi AI yang relevan untuk menyelesaikan masalah nyata di masyarakat.
+        </p>
+
+        <div class="comp-features">
+          <div class="comp-feature">
+            <i class="fa-solid fa-lightbulb"></i>
+            <div>
+              <h4>Inovasi AI</h4>
+              <p>Ide bisnis harus memanfaatkan teknologi AI sebagai solusi utama.</p>
+            </div>
+          </div>
+          <div class="comp-feature">
+            <i class="fa-solid fa-chart-line"></i>
+            <div>
+              <h4>Model Bisnis</h4>
+              <p>Proposal bisnis harus memiliki model yang scalable dan sustainable.</p>
+            </div>
+          </div>
+          <div class="comp-feature">
+            <i class="fa-solid fa-users"></i>
+            <div>
+              <h4>Dampak Sosial</h4>
+              <p>Solusi harus memberikan dampak positif bagi masyarakat luas.</p>
+            </div>
+          </div>
+          <div class="comp-feature">
+            <i class="fa-solid fa-handshake"></i>
+            <div>
+              <h4>Feasibility</h4>
+              <p>Ide harus realistis untuk diimplementasikan dalam 1-3 tahun ke depan.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-info">
+          <div class="comp-info-item">
+            <i class="fa-solid fa-user-group"></i>
+            <div>
+              <span class="comp-info-label">Peserta</span>
+              <span class="comp-info-value">Tim (2-4 orang)</span>
+            </div>
+          </div>
+          <div class="comp-info-item">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+              <span class="comp-info-label">Target</span>
+              <span class="comp-info-value">Mahasiswa & Umum</span>
+            </div>
+          </div>
+          <div class="comp-info-item">
+            <i class="fa-solid fa-trophy"></i>
+            <div>
+              <span class="comp-info-label">Total Hadiah</span>
+              <span class="comp-info-value">Puluhan Juta Rupiah</span>
+            </div>
+          </div>
+          <div class="comp-info-item">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <span class="comp-info-label">Sertifikat</span>
+              <span class="comp-info-value">E-Certificate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 TAHAP -->
+  <section class="comp-section comp-section-alt">
+    <div class="comp-container">
+      <div class="section-header">
+        <span class="section-tag">Competition Flow</span>
+        <h2 class="section-title">Dua Tahap <span class="gradient-text">Menuju Juara</span></h2>
+        <p class="section-subtitle">Setiap peserta wajib melewati kedua tahap secara berurutan untuk menjadi pemenang.</p>
+      </div>
+
+      <div class="stages-grid">
+        <!-- TAHAP 1 -->
+        <div class="stage-card">
+          <div class="stage-header">
+            <span class="stage-num">01</span>
+            <span class="stage-badge">Tahap Pertama</span>
+          </div>
+          <h3>Pengumpulan Abstrak</h3>
+          <div class="stage-period">
+                <i class="fa-solid fa-calendar-days"></i>
+          <div>
+                <span class="period-label">Periode Pengumpulan</span>
+                <span class="period-date">25 Juli — 11 Agustus 2026</span>
+          </div>
+        </div>
+          <p>Peserta mengirimkan abstrak ide bisnis AI. Tim juri akan menyeleksi abstrak terbaik untuk lanjut ke tahap berikutnya.</p>
+          
+          <div class="stage-stats">
+            <div class="stage-stat">
+              <i class="fa-solid fa-users"></i>
+              <span>50 Tim</span>
+            </div>
+            <div class="stage-stat">
+              <i class="fa-solid fa-file-lines"></i>
+              <span>1-2 Halaman</span>
+            </div>
+          </div>
+
+          <ul class="stage-list">
+            <li><i class="fa-solid fa-check"></i> Abstrak berisi ringkasan ide bisnis berbasis AI</li>
+            <li><i class="fa-solid fa-check"></i> Mencakup latar belakang masalah, solusi AI, target pasar</li>
+            <li><i class="fa-solid fa-check"></i> Ditulis dalam Bahasa Indonesia atau Inggris</li>
+            <li><i class="fa-solid fa-check"></i> Format PDF, maksimal 2 halaman</li>
+          </ul>
+
+          <a href="https://forms.gle/ContohLinkGFormAnda" class="btn btn-primary" target="_blank">
+            <i class="fa-solid fa-paper-plane"></i> Kirim Abstrak
+          </a>
+        </div>
+
+        <!-- TAHAP 2 -->
+        <div class="stage-card">
+          <div class="stage-header">
+            <span class="stage-num">02</span>
+            <span class="stage-badge">Tahap Kedua</span>
+          </div>
+          <h3>Pengumpulan Full Paper</h3>
+          <div class="stage-period">
+            <i class="fa-solid fa-calendar"></i>
+            <span>Setelah Pengumuman Lolos</span>
+          </div>
+          <p>Peserta yang lolos tahap abstrak diwajibkan mengirimkan full paper berisi proposal bisnis lengkap. Paper akan direview oleh dewan juri ahli.</p>
+          
+          <div class="stage-stats">
+            <div class="stage-stat">
+              <i class="fa-solid fa-filter"></i>
+              <span>Finalis</span>
+            </div>
+            <div class="stage-stat">
+              <i class="fa-solid fa-file-contract"></i>
+              <span>8-15 Halaman</span>
+            </div>
+          </div>
+
+          <ul class="stage-list">
+            <li><i class="fa-solid fa-check"></i> Full paper berisi proposal bisnis AI lengkap</li>
+            <li><i class="fa-solid fa-check"></i> Mencakup executive summary, analisis pasar, model bisnis</li>
+            <li><i class="fa-solid fa-check"></i> Wajib menyertakan mockup/wireframe produk AI</li>
+            <li><i class="fa-solid fa-check"></i> Presentasi pitch deck di depan dewan juri</li>
+          </ul>
+
+          <a href="https://forms.gle/ContohLinkGFormAnda" class="btn btn-primary" target="_blank">
+            <i class="fa-solid fa-file-arrow-up"></i> Info Full Paper
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+  <div class="timeline-container">
+    <div class="section-header">
+      <span class="section-tag">Timeline</span>
+      <h2 class="section-title">Jadwal <span class="gradient-text">Kompetisi</span></h2>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">25 Juli - 11 Agustus 2026</span>
+          <h4>Pengumpulan Abstrak (Registrasi)</h4>
+          <p>Periode pendaftaran dan pengumpulan abstrak untuk seluruh peserta.</p>
+          <span class="timeline-stage-tag tahap1">Tahap 1</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">16 Agustus 2026</span>
+          <h4>Pengumuman Lolos Abstrak</h4>
+          <p>Tim terbaik diumumkan untuk lanjut ke tahap pengumpulan karya final.</p>
+          <span class="timeline-stage-tag tahap1">Tahap 1</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">17 – 31 Agustus 2026</span>
+          <h4>Pengumpulan Karya Final Gelombang 1</h4>
+          <p>Peserta yang lolos mengirimkan karya final pada gelombang pertama.</p>
+          <span class="timeline-stage-tag tahap2">Tahap 2</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">1 – 5 September 2026</span>
+          <h4>Pengumpulan Karya Final Gelombang 2</h4>
+          <p>Periode pengumpulan karya final gelombang kedua.</p>
+          <span class="timeline-stage-tag tahap2">Tahap 2</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">11 September 2026</span>
+          <h4>Pengumuman Grand Finalis</h4>
+          <p>Tim yang lolos ke babak Grand Final akan diumumkan.</p>
+          <span class="timeline-stage-tag tahap2">Tahap 2</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">12 September 2026</span>
+          <h4>Technical Meeting Bersama Peserta</h4>
+          <p>Pertemuan teknis dengan seluruh peserta Grand Final.</p>
+          <span class="timeline-stage-tag tahap2">Tahap 2</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">20 – 22 September 2026</span>
+          <h4>Pengumpulan PPT & Materi Grand Finalis</h4>
+          <p>Grand Finalis mengumpulkan presentasi dan materi pendukung.</p>
+          <span class="timeline-stage-tag tahap2">Tahap 2</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date">26 September 2026</span>
+          <h4>Grand Final & Talkshow</h4>
+          <p>Puncak acara: presentasi final, talkshow, dan pengumuman pemenang.</p>
+          <span class="timeline-stage-tag final">Final</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- CTA -->
+  <section class="comp-cta">
+    <div class="comp-cta-content">
+      <h2>Siap Mengikuti <span class="gradient-text">IT Preneur Competition?</span></h2>
+      <p>Mulai dari abstrak, buktikan ide bisnis AI-mu layak menjadi yang terbaik.</p>
+      <div class="comp-cta-buttons">
+        <a href="https://forms.gle/ContohLinkGFormAnda" class="btn btn-primary" target="_blank">
+          <i class="fa-solid fa-rocket"></i> Daftar Sekarang
+        </a>
+        <a href="contact.html" class="btn btn-ghost">
+          <i class="fa-solid fa-circle-question"></i> Tanya Panitia
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+          <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
+        </a>
+        <p>Festival inovasi teknologi terbesar di Indonesia.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Navigasi</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="competition.html">Competition</a>
+        <a href="talkshow.html">Talkshow</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h5>Event</h5>
+        <a href="competition.html">Competition</a>
+        <a href="talkshow.html">Talkshow</a>
+      </div>
+      <div class="footer-links">
+        <h5>Legal</h5>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Teknovistafest. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

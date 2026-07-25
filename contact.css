@@ -1,0 +1,152 @@
+.page-contact { background: linear-gradient(180deg, #00102A 0%, #011E3E 100%); }
+
+.contact-page {
+  min-height: 100vh;
+  padding: 140px 5% 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#auroraCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.6; }
+
+.contact-container-simple { position: relative; z-index: 2; max-width: 650px; width: 100%; }
+.contact-info .page-title { margin-bottom: 20px; text-align: center; }
+.contact-desc { color: var(--text-dim); margin-bottom: 40px; font-size: 1.05rem; line-height: 1.7; text-align: center; }
+
+.narahubung-card {
+  padding: 32px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.narahubung-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient);
+}
+
+.narahubung-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 20px 50px rgba(55, 158, 245, 0.15);
+}
+
+.narahubung-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+
+.narahubung-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+.narahubung-header-info { display: flex; flex-direction: column; gap: 2px; }
+.narahubung-label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
+.narahubung-sublabel { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+
+.narahubung-numbers { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+
+.number-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: rgba(229, 224, 195, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.number-row:hover {
+  background: rgba(55, 158, 245, 0.08);
+  border-color: var(--primary-light);
+  transform: translateX(4px);
+}
+
+.number-info { display: flex; flex-direction: column; gap: 2px; }
+.number-label { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; }
+
+.number-link {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.number-link:hover { color: var(--primary-light); }
+
+.number-btn {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.number-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
+
+.narahubung-footer { margin-top: 8px; }
+.footer-divider { height: 1px; background: var(--glass-border); margin-bottom: 16px; }
+
+.ig-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-left: -12px;
+}
+
+.ig-link:hover { color: #E1306C; background: rgba(225, 48, 108, 0.1); transform: translateX(4px); }
+
+.ig-link i {
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .contact-page { padding: 120px 5% 60px; }
+  .narahubung-card { padding: 24px 20px; }
+  .narahubung-icon { width: 48px; height: 48px; font-size: 1.4rem; }
+  .number-link { font-size: 1rem; }
+  .number-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+  .number-row { padding: 14px 14px; }
+  .page-title { font-size: 2rem; }
+  .ig-link { font-size: 0.85rem; }
+}

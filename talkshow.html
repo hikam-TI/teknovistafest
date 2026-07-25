@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talkshow — Teknovistafest</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-400-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <style>
+    /* TALKSHOW PAGE CSS - INLINE */
+    .page-talkshow { background: #011E3E; }
+    
+    .talkshow-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 5% 80px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #00102A 0%, #011E3E 100%);
+    }
+    
+    #waveCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.5;
+    }
+    
+    .talkshow-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      text-align: center;
+    }
+    
+    .talkshow-hero-content .section-tag {
+      margin-bottom: 16px;
+    }
+    
+    .talkshow-hero-content .page-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      margin-bottom: 16px;
+    }
+    
+    .talkshow-hero-content .page-desc {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: #C0B8A8;
+      line-height: 1.7;
+    }
+    
+    /* SPEAKERS SECTION */
+    .speakers-section {
+      padding: 80px 5%;
+      background: linear-gradient(180deg, #011E3E 0%, #00102A 100%);
+    }
+    
+    .speakers-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    .speakers-sub {
+      color: #C0B8A8;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .single-speaker-showcase {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    
+    .single-speaker-card {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      padding: 40px;
+      background: rgba(229, 224, 195, 0.12);
+      border: 1px solid rgba(229, 224, 195, 0.2);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    
+    .single-speaker-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #379EF5, #E5E0C3, #011E3E);
+    }
+    
+    .single-speaker-card:hover {
+      border-color: #6CB4FF;
+      box-shadow: 0 20px 40px rgba(55, 158, 245, 0.15);
+    }
+    
+    .speaker-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .speaker-avatar-large {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #379EF5 0%, #E5E0C3 50%, #011E3E 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      box-shadow: 0 10px 30px rgba(55, 158, 245, 0.4);
+      position: relative;
+      margin-bottom: 16px;
+    }
+    
+    .speaker-avatar-large::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border: 2px dashed rgba(108, 180, 255, 0.4);
+      border-radius: 50%;
+      animation: rotate 20s linear infinite;
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .speaker-mystery-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(229, 224, 195, 0.15);
+      border: 1px solid rgba(229, 224, 195, 0.3);
+      border-radius: 50px;
+      color: #E5E0C3;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .speaker-details {
+      text-align: center;
+    }
+    
+    .speaker-details h3 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #379EF5 0%, #E5E0C3 50%, #011E3E 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .speaker-details .speaker-role {
+      color: #6CB4FF;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    .speaker-bio {
+      color: #C0B8A8;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+    
+    .speaker-topics {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    
+    .topic-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(229, 224, 195, 0.12);
+      border: 1px solid rgba(229, 224, 195, 0.2);
+      border-radius: 50px;
+      color: #E5E0C3;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .topic-tag:hover {
+      border-color: #6CB4FF;
+      background: rgba(55, 158, 245, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .topic-tag i {
+      color: #6CB4FF;
+      font-size: 0.8rem;
+    }
+    
+    .speaker-quote {
+      position: relative;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(55, 158, 245, 0.08), rgba(10, 46, 90, 0.05));
+      border: 1px solid rgba(55, 158, 245, 0.2);
+      border-radius: 14px;
+      margin-top: 20px;
+    }
+    
+    .speaker-quote i {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 1.5rem;
+      color: rgba(55, 158, 245, 0.2);
+    }
+    
+    .speaker-quote p {
+      font-size: 1rem;
+      font-style: italic;
+      color: #E5E0C3;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      padding-left: 24px;
+    }
+    
+    .speaker-quote span {
+      display: block;
+      color: #6CB4FF;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding-left: 24px;
+    }
+    
+    /* SCHEDULE SECTION */
+    .schedule-section {
+      padding: 80px 5%;
+      background: linear-gradient(180deg, #00102A 0%, #011E3E 100%);
+    }
+    
+    .schedule-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .schedule-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .tab-btn {
+      padding: 10px 20px;
+      background: rgba(229, 224, 195, 0.12);
+      border: 1px solid rgba(229, 224, 195, 0.2);
+      border-radius: 50px;
+      color: #C0B8A8;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .tab-btn:hover {
+      color: #E5E0C3;
+      border-color: #6CB4FF;
+    }
+    
+    .tab-btn.active {
+      background: linear-gradient(135deg, #379EF5 0%, #E5E0C3 50%, #011E3E 100%);
+      color: #011E3E;
+      border-color: transparent;
+    }
+    
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 20px 24px;
+      background: rgba(229, 224, 195, 0.12);
+      border: 1px solid rgba(229, 224, 195, 0.2);
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .schedule-item:hover {
+      border-color: #6CB4FF;
+      transform: translateX(6px);
+    }
+    
+    .schedule-item.hidden {
+      display: none;
+    }
+    
+    .schedule-time {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: #6CB4FF;
+      font-size: 1rem;
+    }
+    
+    .schedule-detail h4 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      color: #E5E0C3;
+    }
+    
+    .schedule-detail p {
+      color: #C0B8A8;
+      font-size: 0.85rem;
+    }
+    
+    .schedule-tag {
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    .schedule-tag.keynote { background: rgba(55, 158, 245, 0.2); color: #6CB4FF; }
+    .schedule-tag.panel { background: rgba(10, 46, 90, 0.2); color: #E5E0C3; }
+    .schedule-tag.workshop { background: rgba(229, 224, 195, 0.2); color: #F5F0E0; }
+    .schedule-tag.networking { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+    
+    /* TALKSHOW CTA */
+    .talkshow-cta-section {
+      padding: 80px 5%;
+      background: radial-gradient(ellipse at center, #0A2E5A 0%, transparent 70%);
+      text-align: center;
+    }
+    
+    .talkshow-cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .talkshow-cta-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 14px;
+      color: #E5E0C3;
+    }
+    
+    .talkshow-cta-content p {
+      color: #C0B8A8;
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+    
+    .talkshow-cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .single-speaker-card {
+        padding: 30px 20px;
+      }
+      
+      .speaker-avatar-large {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+      }
+      
+      .speaker-topics {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .talkshow-cta-buttons .btn-lg {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .talkshow-hero {
+        padding: 120px 5% 60px;
+      }
+      
+      .talkshow-hero-content .page-title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+      }
+      
+      .speakers-section,
+      .schedule-section,
+      .talkshow-cta-section {
+        padding: 60px 5%;
+      }
+      
+      .schedule-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .schedule-tag {
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+<body class="page-talkshow">
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+        <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link active">Event <i class="fa-solid fa-chevron-down dropdown-arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="competition.html"><i class="fa-solid fa-trophy"></i> Competition</a></li>
+            <li><a href="talkshow.html"><i class="fa-solid fa-microphone"></i> Talkshow</a></li>
+          </ul>
+        </li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="contact.html" class="btn btn-ghost">Hubungi Panitia</a>
+        <a href="https://forms.gle/ContohLinkGFormAnda" class="btn btn-primary" target="_blank">Daftar Sekarang</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="talkshow-hero">
+    <canvas id="waveCanvas"></canvas>
+    <div class="talkshow-hero-content">
+      <span class="section-tag">Talkshow</span>
+      <h1 class="page-title">Sesi Inspirasi <span class="gradient-text">& Diskusi</span></h1>
+      <p class="page-desc">Dengarkan pengalaman langsung dari pembicara spesial kami yang akan berbagi wawasan mendalam seputar dunia teknologi dan inovasi.</p>
+    </div>
+  </section>
+
+  <!-- SPEAKER -->
+  <section class="speakers-section">
+    <div class="speakers-container">
+      <div class="section-header">
+        <span class="section-tag">Featured Speaker</span>
+        <h2 class="section-title">Pembicara <span class="gradient-text">Utama</span></h2>
+        <p class="speakers-sub">Seorang ahli terkemuka yang akan membagikan insight berharga di acara kami.</p>
+      </div>
+
+      <div class="single-speaker-showcase">
+        <div class="single-speaker-card">
+          <div class="speaker-visual">
+            <div class="speaker-avatar-large">
+              <i class="fa-solid fa-user-secret"></i>
+            </div>
+            <div class="speaker-mystery-badge">
+              <i class="fa-solid fa-mask"></i>
+              <span>Mystery Speaker</span>
+            </div>
+          </div>
+          
+          <div class="speaker-details">
+            <h3>Anonymous</h3>
+            <p class="speaker-role">Special Guest Speaker</p>
+            <p class="speaker-bio">
+              Pembicara spesial kami memilih untuk tetap <strong>anonim</strong> hingga hari-H acara. Namun, kami jamin bahwa beliau adalah seorang figur berpengaruh di industri teknologi dengan pengalaman lebih dari satu dekade dalam membangun inovasi yang mengubah dunia.
+            </p>
+            
+            <div class="speaker-topics">
+              <div class="topic-tag">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Inovasi Teknologi</span>
+              </div>
+              <div class="topic-tag">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Startup & Entrepreneurship</span>
+              </div>
+              <div class="topic-tag">
+                <i class="fa-solid fa-globe"></i>
+                <span>Masa Depan Digital</span>
+              </div>
+            </div>
+            
+            <div class="speaker-quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>"Inovasi terbaik lahir dari keberanian untuk berpikir berbeda dan bertindak lebih cepat dari yang lain."</p>
+              <span>— Anonymous</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule-section">
+  <div class="schedule-container">
+    <div class="section-header">
+      <span class="section-tag">Schedule</span>
+      <h2 class="section-title">Jadwal <span class="gradient-text">Talkshow</span></h2>
+    </div>
+    
+    <div class="schedule-tabs">
+      <button class="tab-btn active" data-day="1">Persiapan</button>
+      <button class="tab-btn" data-day="2">Grand Final</button>
+    </div>
+    
+    <div class="schedule-list" id="scheduleList">
+      <div class="schedule-item" data-day="1">
+        <div class="schedule-time">25 Jul - 11 Ags</div>
+        <div class="schedule-detail">
+          <h4>Registrasi & Pengumpulan Abstrak</h4>
+          <p>Periode pendaftaran peserta kompetisi</p>
+        </div>
+        <span class="schedule-tag panel">Registrasi</span>
+      </div>
+      
+      <div class="schedule-item" data-day="1">
+        <div class="schedule-time">16 Agustus 2026</div>
+        <div class="schedule-detail">
+          <h4>Pengumuman Lolos Abstrak</h4>
+          <p>Pengumuman tim yang lolos ke tahap final</p>
+        </div>
+        <span class="schedule-tag panel">Pengumuman</span>
+      </div>
+      
+      <div class="schedule-item" data-day="1">
+        <div class="schedule-time">17 - 31 Agustus 2026</div>
+        <div class="schedule-detail">
+          <h4>Pengumpulan Karya Final Gel. 1</h4>
+          <p>Gelombang pertama pengumpulan karya final</p>
+        </div>
+        <span class="schedule-tag workshop">Gelombang 1</span>
+      </div>
+      
+      <div class="schedule-item" data-day="1">
+        <div class="schedule-time">1 - 5 September 2026</div>
+        <div class="schedule-detail">
+          <h4>Pengumpulan Karya Final Gel. 2</h4>
+          <p>Gelombang kedua pengumpulan karya final</p>
+        </div>
+        <span class="schedule-tag workshop">Gelombang 2</span>
+      </div>
+      
+      <div class="schedule-item" data-day="1">
+        <div class="schedule-time">11 September 2026</div>
+        <div class="schedule-detail">
+          <h4>Pengumuman Grand Finalis</h4>
+          <p>Pengumuman tim yang lolos ke Grand Final</p>
+        </div>
+        <span class="schedule-tag panel">Pengumuman</span>
+      </div>
+      
+      <div class="schedule-item" data-day="1">
+        <div class="schedule-time">12 September 2026</div>
+        <div class="schedule-detail">
+          <h4>Technical Meeting</h4>
+          <p>Technical meeting bersama seluruh peserta Grand Final</p>
+        </div>
+        <span class="schedule-tag networking">Meeting</span>
+      </div>
+      
+      <div class="schedule-item" data-day="1">
+        <div class="schedule-time">20 - 22 September 2026</div>
+        <div class="schedule-detail">
+          <h4>Pengumpulan PPT & Materi</h4>
+          <p>Grand Finalis mengumpulkan presentasi dan materi</p>
+        </div>
+        <span class="schedule-tag workshop">Persiapan</span>
+      </div>
+      
+      <div class="schedule-item" data-day="2">
+        <div class="schedule-time">26 September 2026</div>
+        <div class="schedule-detail">
+          <h4>Grand Final & Talkshow</h4>
+          <p>Anonymous — Main Stage</p>
+        </div>
+        <span class="schedule-tag keynote">Grand Final</span>
+      </div>
+      
+      <div class="schedule-item" data-day="2">
+        <div class="schedule-time">26 September 2026</div>
+        <div class="schedule-detail">
+          <h4>Talkshow Session</h4>
+          <p>Sesi inspiratif bersama pembicara spesial</p>
+        </div>
+        <span class="schedule-tag keynote">Talkshow</span>
+      </div>
+      
+      <div class="schedule-item" data-day="2">
+        <div class="schedule-time">26 September 2026</div>
+        <div class="schedule-detail">
+          <h4>Awarding Night</h4>
+          <p>Pengumuman pemenang & penyerahan hadiah</p>
+        </div>
+        <span class="schedule-tag keynote">Awarding</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- CTA -->
+  <section class="talkshow-cta-section">
+    <div class="talkshow-cta-content">
+      <h2>Ingin Bertemu <span class="gradient-text">Pembicara Kami?</span></h2>
+      <p>Daftarkan dirimu sekarang dan dapatkan kesempatan eksklusif untuk berinteraksi langsung dengan Anonymous di sesi networking!</p>
+      <div class="talkshow-cta-buttons">
+        <a href="https://forms.gle/ContohLinkGFormAnda" class="btn btn-primary btn-lg" target="_blank">
+          <i class="fa-solid fa-ticket"></i> Daftar Talkshow
+        </a>
+        <a href="contact.html" class="btn btn-ghost btn-lg">
+          <i class="fa-solid fa-circle-question"></i> Tanya Panitia
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+          <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
+        </a>
+        <p>Festival inovasi teknologi terbesar di Indonesia.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Navigasi</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="competition.html">Competition</a>
+        <a href="talkshow.html">Talkshow</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h5>Event</h5>
+        <a href="competition.html">Competition</a>
+        <a href="talkshow.html">Talkshow</a>
+      </div>
+      <div class="footer-links">
+        <h5>Legal</h5>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Teknovistafest. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

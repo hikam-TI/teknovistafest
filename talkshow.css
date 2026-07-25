@@ -1,0 +1,261 @@
+.page-talkshow { background: linear-gradient(180deg, #00102A 0%, #0A2E5A 50%, #011E3E 100%); }
+
+#waveCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.5; }
+
+.speakers-section { padding: 80px 5%; }
+.speakers-container { max-width: 1200px; margin: 0 auto; }
+.speakers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+.speaker-card {
+  display: flex;
+  gap: 20px;
+  padding: 28px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.speaker-card:hover { transform: translateY(-6px); border-color: var(--primary-light); }
+
+.speaker-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.speaker-info h3 { font-size: 1.2rem; margin-bottom: 4px; }
+.speaker-role { color: var(--primary-light); font-size: 0.85rem; font-weight: 500; margin-bottom: 8px; }
+.speaker-topic { color: var(--text-dim); font-size: 0.9rem; font-style: italic; }
+
+.speakers-sub { color: var(--text-dim); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+.single-speaker-showcase { display: flex; justify-content: center; margin-top: 20px; }
+
+.single-speaker-card {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  padding: 50px;
+  background: rgba(1, 30, 62, 0.7);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.single-speaker-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 20px 60px rgba(55, 158, 245, 0.2);
+}
+
+.single-speaker-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #379EF5, #0A2E5A, #E5E0C3);
+}
+
+.speaker-glow {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(55, 158, 245, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.speaker-visual { display: flex; flex-direction: column; align-items: center; margin-bottom: 30px; }
+
+.speaker-avatar-large {
+  width: 160px;
+  height: 160px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 4rem;
+  box-shadow: 0 10px 40px rgba(55, 158, 245, 0.4);
+  position: relative;
+  animation: avatarPulse 3s infinite ease-in-out;
+}
+
+.speaker-avatar-large::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 2px dashed rgba(108, 180, 255, 0.4);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes avatarPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 10px 40px rgba(55, 158, 245, 0.4); }
+  50% { transform: scale(1.03); box-shadow: 0 15px 50px rgba(55, 158, 245, 0.6); }
+}
+
+.speaker-mystery-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(229, 224, 195, 0.15);
+  border: 1px solid rgba(229, 224, 195, 0.3);
+  border-radius: 50px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+.speaker-details { text-align: center; }
+
+.speaker-details h3 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 8px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.speaker-details .speaker-role {
+  color: var(--primary-light);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.speaker-bio { color: var(--text-dim); font-size: 1.05rem; line-height: 1.7; max-width: 700px; margin: 0 auto 30px; }
+
+.speaker-topics { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+
+.topic-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.topic-tag:hover {
+  border-color: var(--primary-light);
+  background: rgba(55, 158, 245, 0.1);
+  transform: translateY(-2px);
+}
+
+.topic-tag i { color: var(--primary-light); font-size: 0.85rem; }
+
+.speaker-quote {
+  position: relative;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(55, 158, 245, 0.08), rgba(10, 46, 90, 0.05));
+  border: 1px solid rgba(55, 158, 245, 0.2);
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.speaker-quote i { position: absolute; top: 15px; left: 20px; font-size: 2rem; color: rgba(55, 158, 245, 0.2); }
+.speaker-quote p { font-size: 1.1rem; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 10px; padding-left: 30px; }
+.speaker-quote span { display: block; color: var(--primary-light); font-weight: 600; font-size: 0.95rem; padding-left: 30px; }
+
+.schedule-section { padding: 80px 5%; }
+.schedule-container { max-width: 900px; margin: 0 auto; }
+.schedule-tabs { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+
+.tab-btn {
+  padding: 10px 20px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover { color: var(--text); border-color: var(--primary-light); }
+.tab-btn.active { background: var(--gradient); color: white; border-color: transparent; }
+
+.schedule-list { display: flex; flex-direction: column; gap: 16px; }
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.schedule-item:hover { border-color: var(--primary-light); transform: translateX(6px); }
+.schedule-item.hidden { display: none; }
+
+.schedule-time { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--primary-light); font-size: 1rem; }
+.schedule-detail h4 { font-size: 1.05rem; margin-bottom: 4px; }
+.schedule-detail p { color: var(--text-dim); font-size: 0.85rem; }
+
+.schedule-tag { padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+.schedule-tag.keynote { background: rgba(55, 158, 245, 0.2); color: var(--primary-light); }
+.schedule-tag.panel { background: rgba(10, 46, 90, 0.2); color: var(--accent); }
+.schedule-tag.workshop { background: rgba(229, 224, 195, 0.2); color: var(--accent-light); }
+.schedule-tag.networking { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+
+.talkshow-cta-section { padding: 80px 5%; background: radial-gradient(ellipse at center, #0A2E5A 0%, transparent 70%); text-align: center; }
+.talkshow-cta-content { max-width: 700px; margin: 0 auto; }
+.talkshow-cta-content h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 16px; }
+.talkshow-cta-content p { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 30px; }
+.talkshow-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .single-speaker-card { padding: 30px 20px; }
+  .speaker-avatar-large { width: 130px; height: 130px; font-size: 3rem; }
+  .speaker-topics { flex-direction: column; align-items: center; }
+  .talkshow-cta-buttons .btn-lg { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 640px) {
+  .speakers-grid { grid-template-columns: 1fr; }
+  .schedule-item { grid-template-columns: 1fr; gap: 10px; }
+  .schedule-tag { justify-self: start; }
+}
+
+@media (max-width: 480px) {
+  .speaker-avatar-large { width: 110px; height: 110px; font-size: 2.5rem; }
+  .speaker-details h3 { font-size: 1.8rem; }
+  .speaker-quote { padding: 20px; }
+  .speaker-quote p { font-size: 1rem; }
+}

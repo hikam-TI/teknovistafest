@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Teknovistafest</title>
+  
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="faq.css" />
+  
+  <!-- Font & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-400-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body class="page-faq">
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+        <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Event <i class="fa-solid fa-chevron-down dropdown-arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="competition.html"><i class="fa-solid fa-trophy"></i> Competition</a></li>
+            <li><a href="talkshow.html"><i class="fa-solid fa-microphone"></i> Talkshow</a></li>
+          </ul>
+        </li>
+        <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="contact.html" class="btn btn-ghost">Hubungi Panitia</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5z418qifhU4uKlZFyuOSbK5lDpK12U0Yi6OzwnZku32H_Gg/viewform" class="btn btn-primary" target="_blank">Daftar Sekarang</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="section-tag">FAQ</span>
+      <h1 class="page-title">Pertanyaan yang <span class="gradient-text">Sering Diajukan</span></h1>
+      <p class="page-desc">Temukan jawaban atas pertanyaan umum seputar Teknovistafest 2026. Jika tidak menemukan jawaban yang Anda cari, silakan hubungi kami.</p>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION (DIGABUNG: Background 3D + Konten) -->
+  <section class="faq-section">
+    <!-- 1. 3D Background Canvas -->
+    <canvas id="faq3dCanvas"></canvas>
+    
+    <!-- 2. Floating 3D Elements -->
+    <div class="faq-3d-elements">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+      <div class="floating-shape shape-4"></div>
+      <div class="floating-shape shape-5"></div>
+      <div class="floating-shape shape-6"></div>
+    </div>
+
+    <!-- 3. FAQ Content Container (Z-Index Tinggi agar di atas canvas) -->
+    <div class="faq-container">
+      
+      <!-- KATEGORI: UMUM -->
+      <div class="faq-category">
+        <h3 class="faq-category-title"><i class="fa-solid fa-circle-info"></i> Umum</h3>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question"><span>Apa itu Teknovistafest?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Teknovistafest adalah festival inovasi teknologi terbesar di Indonesia yang menghadirkan kompetisi, talkshow inspiratif, dan networking session dengan para ahli dan praktisi teknologi.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Kapan dan di mana acara dilaksanakan?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Teknovistafest 2026 akan dilaksanakan pada <strong>20-22 Desember 2026</strong> di <strong>Jakarta Convention Center</strong>.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Siapa saja yang bisa mengikuti acara ini?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Teknovistafest terbuka untuk <strong>mahasiswa, profesional, dan masyarakat umum</strong> yang tertarik dengan teknologi dan inovasi. Tidak ada batasan usia.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Apakah ada biaya pendaftaran?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p><strong>GRATIS!</strong> Pendaftaran untuk menghadiri Teknovistafest 2026 sepenuhnya gratis. Namun, untuk kompetisi tertentu mungkin ada biaya pendaftaran yang akan diinformasikan terpisah.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KATEGORI: KOMPETISI -->
+      <div class="faq-category">
+        <h3 class="faq-category-title"><i class="fa-solid fa-trophy"></i> Kompetisi</h3>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question"><span>Kategori lomba apa saja yang tersedia?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Saat ini kami memiliki 1 kategori kompetisi: <strong>IT Preneur: AI Business Competition</strong>. Kompetisi ini menantang peserta untuk merancang ide bisnis inovatif berbasis Artificial Intelligence.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Bagaimana tahapan kompetisi?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Kompetisi dilaksanakan dalam 2 tahap:<br><strong>Tahap 1:</strong> Pengumpulan Abstrak (21 Juli - 7 Agustus 2026)<br><strong>Tahap 2:</strong> Pengumpulan Full Paper (setelah pengumuman lolos tahap 1).</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Berapa jumlah anggota dalam satu tim?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Setiap tim terdiri dari <strong>2-4 orang</strong>. Anda bisa membentuk tim sendiri atau mendaftar sebagai individu dan kami akan membantu mencarikan tim.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Kapan deadline pendaftaran kompetisi?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Deadline pengumpulan abstrak adalah <strong>7 Agustus 2026</strong>. Pastikan Anda mendaftar dan mengirimkan abstrak sebelum tanggal tersebut.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KATEGORI: TALKSHOW -->
+      <div class="faq-category">
+        <h3 class="faq-category-title"><i class="fa-solid fa-microphone"></i> Talkshow</h3>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question"><span>Siapa pembicara di Teknovistafest?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Kami menghadirkan <strong>1 special speaker (Anonymous)</strong> yang merupakan figur berpengaruh di industri teknologi dengan pengalaman lebih dari satu dekade. Identitas beliau akan diungkap pada hari-H acara.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Apakah ada sesi Q&A dengan pembicara?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p><strong>Ya!</strong> Akan ada sesi Q&A dan networking di mana Anda bisa berinteraksi langsung dengan pembicara dan bertanya seputar topik yang dibahas.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KATEGORI: PENDAFTARAN -->
+      <div class="faq-category">
+        <h3 class="faq-category-title"><i class="fa-solid fa-user-plus"></i> Pendaftaran</h3>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question"><span>Bagaimana cara mendaftar?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Anda bisa mendaftar dengan mengisi formulir di halaman <a href="contact.html">Contact</a> atau klik tombol "Daftar Sekarang" di website ini. Setelah itu, tim kami akan menghubungi Anda untuk konfirmasi.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Apakah akan ada sertifikat?</span><i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p><strong>Ya!</strong> Semua peserta akan mendapatkan <strong>e-sertifikat</strong> yang dapat digunakan untuk portofolio atau keperluan akademik.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="faq-cta">
+        <h3>Masih Ada Pertanyaan?</h3>
+        <p>Jika Anda tidak menemukan jawaban yang dicari, jangan ragu untuk menghubungi tim kami.</p>
+        <div class="faq-cta-buttons">
+          <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-envelope"></i> Hubungi Kami</a>
+          <a href="https://wa.me/6281234567890" class="btn btn-ghost btn-lg" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+
+    </div> <!-- End faq-container -->
+  </section> <!-- End faq-section -->
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+          <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
+        </a>
+        <p>Festival inovasi teknologi terbesar di Indonesia.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Navigasi</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="competition.html">Competition</a>
+        <a href="talkshow.html">Talkshow</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h5>Event</h5>
+        <a href="competition.html">Competition</a>
+        <a href="talkshow.html">Talkshow</a>
+      </div>
+      <div class="footer-links">
+        <h5>Legal</h5>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Teknovistafest. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

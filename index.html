@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teknovistafest</title>
+  
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="index.css" />
+  
+  <!-- Font & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-400-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body class="page-home">
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+        <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Event <i class="fa-solid fa-chevron-down dropdown-arrow"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="competition.html"><i class="fa-solid fa-trophy"></i> Competition</a></li>
+            <li><a href="talkshow.html"><i class="fa-solid fa-microphone"></i> Talkshow</a></li>
+          </ul>
+        </li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="contact.html" class="btn btn-ghost">Hubungi Panitia</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5z418qifhU4uKlZFyuOSbK5lDpK12U0Yi6OzwnZku32H_Gg/viewform" class="btn btn-primary" target="_blank">Daftar Sekarang</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content">
+      <span class="badge"><i class="fa-solid fa-circle"></i> 20 — 22 Desember 2026</span>
+      <h1 class="hero-title">Selamat Datang di <br /><span class="gradient-text">Teknovistafest 2026</span></h1>
+      <p class="hero-desc">National IT Preneur Competition yang mempertemukan para visioner, kreator, dan inovator dari seluruh Indonesia untuk membentuk masa depan digital.</p>
+      <div class="hero-cta">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5z418qifhU4uKlZFyuOSbK5lDpK12U0Yi6OzwnZku32H_Gg/viewform" class="btn btn-primary" target="_blank">Daftar Sekarang</a>
+        <a href="about.html" class="btn btn-ghost btn-lg"><i class="fa-solid fa-play"></i> Pelajari Lebih</a>
+      </div>
+      <div class="hero-stats">
+  <div class="stat">
+    <span class="stat-num" data-target="100">0</span><span>+</span>
+    <p>Estimasi Peserta</p>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="1">0</span><span></span>
+    <p>Narasumber</p>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="1">0</span><span></span>
+    <p>Kategori Lomba</p>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="1">0</span><span></span>
+    <p>Hari Event</p>
+  </div>
+</div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="features-container">
+      <div class="section-header">
+        <span class="section-tag">Why Join Us</span>
+        <h2 class="section-title">Alasan Bergabung <span class="gradient-text">Bersama Kami</span></h2>
+      </div>
+      <div class="features-grid">
+        <a href="competition.html" class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-trophy"></i></div>
+          <h3>Kompetisi Seru</h3>
+          <p>Uji kemampuanmu dalam berbagai cabang kompetisi teknologi bergengsi.</p>
+          <span class="feature-link">Lihat Kompetisi <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="talkshow.html" class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+          <h3>Talkshow Eksklusif</h3>
+          <p>Dapatkan wawasan langsung dari para ahli dan founder startup ternama.</p>
+          <span class="feature-link">Lihat Jadwal <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="about.html" class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>Networking</h3>
+          <p>Terhubung dengan ribuan inovator dan profesional dari seluruh Indonesia.</p>
+          <span class="feature-link">Tentang Kami <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Siap Menjadi Bagian dari <span class="gradient-text">Teknovistafest 2026</span>?</h2>
+      <p>Daftarkan dirimu sekarang dan jadilah saksi lahirnya inovasi masa depan.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5z418qifhU4uKlZFyuOSbK5lDpK12U0Yi6OzwnZku32H_Gg/viewform" class="btn btn-primary btn-lg" target="_blank"><i class="fa-solid fa-ticket"></i> Daftar Sekarang — Gratis!</a>
+    </div>
+  </section>
+
+<!-- MEDIA PARTNERS SECTION -->
+<section class="partners-section">
+  <div class="partners-container">
+    <div class="section-header">
+      <span class="section-tag">Media Partners</span>
+      <h2 class="section-title">Didukung <span class="gradient-text">Oleh</span></h2>
+      <p class="partners-sub">Media partner terpercaya yang mendukung kesuksesan Teknovistafest 2026.</p>
+    </div>
+    
+    <div class="partners-grid">
+      <div class="partner-logo">
+        <img src="logo/MedPar1.png" alt="Media Partner 1" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar2.png" alt="Media Partner 2" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar3.png" alt="Media Partner 3" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar4.png" alt="Media Partner 4" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar5.png" alt="Media Partner 5" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar6.png" alt="Media Partner 6" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar7.png" alt="Media Partner 7" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar8.png" alt="Media Partner 8" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar9.png" alt="Media Partner 9" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar10.png" alt="Media Partner 10" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar11.png" alt="Media Partner 11" />
+      </div>
+      <div class="partner-logo">
+        <img src="logo/MedPar12.png" alt="Media Partner 12" />
+      </div>
+    </div>
+    
+    <div class="partner-cta">
+      <p>Tertarik menjadi media partner Teknovistafest 2026?</p>
+      <a href="contact.html" class="btn btn-primary">
+        <i class="fa-solid fa-handshake"></i> Jadilah Partner Kami
+      </a>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+            <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+            <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
+        </a>
+        <p>Festival inovasi teknologi terbesar di Indonesia.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Navigasi</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="competition.html">Competition</a>
+        <a href="talkshow.html">Talkshow</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h5>Event</h5>
+        <a href="competition.html">Competition</a>
+        <a href="talkshow.html">Talkshow</a>
+      </div>
+      <div class="footer-links">
+        <h5>Legal</h5>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Teknovistafest. All rights reserved. Made with <i class="fa-solid fa-heart"></i> in Indonesia.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
