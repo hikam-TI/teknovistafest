@@ -468,13 +468,23 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+    <!-- HERO -->
   <section class="talkshow-hero">
     <canvas id="waveCanvas"></canvas>
     <div class="talkshow-hero-content">
-      <span class="section-tag">Talkshow</span>
+      <div class="talkshow-badge-group">
+        <span class="section-tag">Talkshow</span>
+        <span class="offline-badge"><i class="fa-solid fa-location-dot"></i> Offline Event</span>
+      </div>
       <h1 class="page-title">Sesi Inspirasi <span class="gradient-text">& Diskusi</span></h1>
-      <p class="page-desc">Dengarkan pengalaman langsung dari pembicara spesial kami yang akan berbagi wawasan mendalam seputar dunia teknologi dan inovasi.</p>
+      <p class="page-desc">
+        Bergabunglah secara langsung (offline) bersama pembicara spesial kami pada <strong>26 September 2026</strong> di Universitas Airlangga Kampus C, Surabaya.
+      </p>
+      <div class="comp-hero-cta" style="margin-top: 24px;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5z418qifhU4uKlZFyuOSbK5lDpK12U0Yi6OzwnZku32H_Gg/viewform" class="btn btn-primary" target="_blank">
+          <i class="fa-solid fa-ticket"></i> Daftar Talkshow
+        </a>
+      </div>
     </div>
   </section>
 
@@ -532,111 +542,63 @@
     </div>
   </section>
 
+    <!-- SCHEDULE -->
   <section class="schedule-section">
-  <div class="schedule-container">
-    <div class="section-header">
-      <span class="section-tag">Schedule</span>
-      <h2 class="section-title">Jadwal <span class="gradient-text">Talkshow</span></h2>
-    </div>
-    
-    <div class="schedule-tabs">
-      <button class="tab-btn active" data-day="1">Persiapan</button>
-      <button class="tab-btn" data-day="2">Grand Final</button>
-    </div>
-    
-    <div class="schedule-list" id="scheduleList">
-      <div class="schedule-item" data-day="1">
-        <div class="schedule-time">25 Jul - 11 Ags</div>
-        <div class="schedule-detail">
-          <h4>Registrasi & Pengumpulan Abstrak</h4>
-          <p>Periode pendaftaran peserta kompetisi</p>
-        </div>
-        <span class="schedule-tag panel">Registrasi</span>
+    <div class="schedule-container">
+      <div class="section-header">
+        <span class="section-tag">Schedule</span>
+        <h2 class="section-title">Jadwal <span class="gradient-text">Talkshow</span></h2>
+        <p class="speakers-sub" style="margin-top: 12px;">
+          <i class="fa-solid fa-calendar-days" style="color: var(--primary-light);"></i> 
+          Sabtu, 26 September 2026 &nbsp;|&nbsp; 
+          <i class="fa-solid fa-location-dot" style="color: var(--primary-light);"></i> 
+          Universitas Airlangga Kampus C, Surabaya (Offline)
+        </p>
       </div>
       
-      <div class="schedule-item" data-day="1">
-        <div class="schedule-time">16 Agustus 2026</div>
-        <div class="schedule-detail">
-          <h4>Pengumuman Lolos Abstrak</h4>
-          <p>Pengumuman tim yang lolos ke tahap final</p>
-        </div>
-        <span class="schedule-tag panel">Pengumuman</span>
+      <div class="schedule-tabs">
+        <button class="tab-btn active">26 September 2026</button>
       </div>
       
-      <div class="schedule-item" data-day="1">
-        <div class="schedule-time">17 - 31 Agustus 2026</div>
-        <div class="schedule-detail">
-          <h4>Pengumpulan Karya Final Gel. 1</h4>
-          <p>Gelombang pertama pengumpulan karya final</p>
+      <div class="schedule-list" id="scheduleList">
+        <div class="schedule-item">
+          <div class="schedule-time">09:00 - 10:30</div>
+          <div class="schedule-detail">
+            <h4>Opening Keynote</h4>
+            <p>Anonymous — Main Stage</p>
+          </div>
+          <span class="schedule-tag keynote">Keynote</span>
         </div>
-        <span class="schedule-tag workshop">Gelombang 1</span>
-      </div>
-      
-      <div class="schedule-item" data-day="1">
-        <div class="schedule-time">1 - 5 September 2026</div>
-        <div class="schedule-detail">
-          <h4>Pengumpulan Karya Final Gel. 2</h4>
-          <p>Gelombang kedua pengumpulan karya final</p>
+        
+        <div class="schedule-item">
+          <div class="schedule-time">10:45 - 12:00</div>
+          <div class="schedule-detail">
+            <h4>Deep Dive Session & Q&A</h4>
+            <p>Anonymous + Moderator — Main Stage</p>
+          </div>
+          <span class="schedule-tag panel">Q&A</span>
         </div>
-        <span class="schedule-tag workshop">Gelombang 2</span>
-      </div>
-      
-      <div class="schedule-item" data-day="1">
-        <div class="schedule-time">11 September 2026</div>
-        <div class="schedule-detail">
-          <h4>Pengumuman Grand Finalis</h4>
-          <p>Pengumuman tim yang lolos ke Grand Final</p>
+        
+        <div class="schedule-item">
+          <div class="schedule-time">13:00 - 15:00</div>
+          <div class="schedule-detail">
+            <h4>Exclusive Workshop</h4>
+            <p>Anonymous — Workshop Room (Terbatas)</p>
+          </div>
+          <span class="schedule-tag workshop">Workshop</span>
         </div>
-        <span class="schedule-tag panel">Pengumuman</span>
-      </div>
-      
-      <div class="schedule-item" data-day="1">
-        <div class="schedule-time">12 September 2026</div>
-        <div class="schedule-detail">
-          <h4>Technical Meeting</h4>
-          <p>Technical meeting bersama seluruh peserta Grand Final</p>
+        
+        <div class="schedule-item">
+          <div class="schedule-time">15:30 - 17:00</div>
+          <div class="schedule-detail">
+            <h4>Networking Session</h4>
+            <p>Anonymous & Peserta — Networking Hall</p>
+          </div>
+          <span class="schedule-tag networking">Networking</span>
         </div>
-        <span class="schedule-tag networking">Meeting</span>
-      </div>
-      
-      <div class="schedule-item" data-day="1">
-        <div class="schedule-time">20 - 22 September 2026</div>
-        <div class="schedule-detail">
-          <h4>Pengumpulan PPT & Materi</h4>
-          <p>Grand Finalis mengumpulkan presentasi dan materi</p>
-        </div>
-        <span class="schedule-tag workshop">Persiapan</span>
-      </div>
-      
-      <div class="schedule-item" data-day="2">
-        <div class="schedule-time">26 September 2026</div>
-        <div class="schedule-detail">
-          <h4>Grand Final & Talkshow</h4>
-          <p>Anonymous — Main Stage</p>
-        </div>
-        <span class="schedule-tag keynote">Grand Final</span>
-      </div>
-      
-      <div class="schedule-item" data-day="2">
-        <div class="schedule-time">26 September 2026</div>
-        <div class="schedule-detail">
-          <h4>Talkshow Session</h4>
-          <p>Sesi inspiratif bersama pembicara spesial</p>
-        </div>
-        <span class="schedule-tag keynote">Talkshow</span>
-      </div>
-      
-      <div class="schedule-item" data-day="2">
-        <div class="schedule-time">26 September 2026</div>
-        <div class="schedule-detail">
-          <h4>Awarding Night</h4>
-          <p>Pengumuman pemenang & penyerahan hadiah</p>
-        </div>
-        <span class="schedule-tag keynote">Awarding</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- CTA -->
   <section class="talkshow-cta-section">
