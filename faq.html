@@ -4,23 +4,242 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ — Teknovistafest</title>
-  
-  <!-- Link CSS -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="faq.css" />
-  
-  <!-- Font & Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-400-normal.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <style>
+    /* FAQ PAGE CSS - INLINE (PASTI TER-LOAD) */
+    .page-faq { background: #011E3E; }
+    
+    .faq-hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 5% 60px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #00102A 0%, #011E3E 100%);
+      text-align: center;
+    }
+    
+    #faq3dCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.4;
+    }
+    
+    .faq-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    
+    .faq-hero-content .section-tag {
+      margin-bottom: 16px;
+    }
+    
+    .faq-hero-content .page-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    
+    .faq-hero-content .page-desc {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: #C0B8A8;
+      line-height: 1.7;
+    }
+    
+    /* FAQ SECTION */
+    .faq-main-section {
+      padding: 60px 5% 80px;
+      background: linear-gradient(180deg, #011E3E 0%, #00102A 100%);
+      position: relative;
+    }
+    
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .faq-category {
+      background: rgba(229, 224, 195, 0.12);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(229, 224, 195, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    
+    .faq-category-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #E5E0C3;
+      padding-bottom: 14px;
+      border-bottom: 2px solid rgba(229, 224, 195, 0.1);
+    }
+    
+    .faq-category-title i {
+      color: #6CB4FF;
+      font-size: 1.4rem;
+    }
+    
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .faq-item {
+      background: rgba(1, 30, 62, 0.5);
+      border: 1px solid rgba(229, 224, 195, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      border-color: #6CB4FF;
+    }
+    
+    .faq-question {
+      width: 100%;
+      padding: 18px 22px;
+      background: transparent;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #E5E0C3;
+      font-family: inherit;
+    }
+    
+    .faq-question i {
+      color: #6CB4FF;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 22px 18px 22px;
+    }
+    
+    .faq-answer p {
+      color: #C0B8A8;
+      line-height: 1.7;
+      font-size: 0.9rem;
+    }
+    
+    .faq-answer a {
+      color: #6CB4FF;
+      text-decoration: none;
+      border-bottom: 1px dotted #6CB4FF;
+    }
+    
+    /* FAQ CTA */
+    .faq-cta {
+      text-align: center;
+      padding: 40px 32px;
+      background: rgba(55, 158, 245, 0.1);
+      border: 1px solid rgba(229, 224, 195, 0.1);
+      border-radius: 16px;
+      margin-top: 40px;
+    }
+    
+    .faq-cta h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: #E5E0C3;
+    }
+    
+    .faq-cta p {
+      color: #C0B8A8;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    
+    .faq-cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .faq-hero {
+        padding: 120px 5% 50px;
+        min-height: 40vh;
+      }
+      
+      .faq-hero-content .page-title {
+        font-size: clamp(1.6rem, 6vw, 2.5rem);
+      }
+      
+      .faq-main-section {
+        padding: 40px 5% 60px;
+      }
+      
+      .faq-category {
+        padding: 24px 20px;
+      }
+      
+      .faq-category-title {
+        font-size: 1.2rem;
+      }
+      
+      .faq-question {
+        padding: 16px 18px;
+        font-size: 0.9rem;
+      }
+      
+      .faq-cta {
+        padding: 30px 20px;
+      }
+      
+      .faq-cta-buttons .btn-lg {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body class="page-faq">
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">
-        <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+        <img src="logo/tekновistafest.png" alt="Teknovistafest Logo" class="logo-img" />
         <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
       </a>
       <ul class="nav-menu">
@@ -38,110 +257,230 @@
       </ul>
       <div class="nav-buttons">
         <a href="contact.html" class="btn btn-ghost">Hubungi Panitia</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5z418qifhU4uKlZFyuOSbK5lDpK12U0Yi6OzwnZku32H_Gg/viewform" class="btn btn-primary" target="_blank">Daftar Sekarang</a>
+        <a href="https://forms.gle/ContohLinkGFormAnda" class="btn btn-primary" target="_blank">Daftar Sekarang</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="page-hero-content">
+  <!-- HERO (DIPERBAIKI - TIDAK TERPOTONG) -->
+  <section class="faq-hero">
+    <canvas id="faq3dCanvas"></canvas>
+    <div class="faq-hero-content">
       <span class="section-tag">FAQ</span>
       <h1 class="page-title">Pertanyaan yang <span class="gradient-text">Sering Diajukan</span></h1>
       <p class="page-desc">Temukan jawaban atas pertanyaan umum seputar Teknovistafest 2026. Jika tidak menemukan jawaban yang Anda cari, silakan hubungi kami.</p>
     </div>
   </section>
 
-  <!-- FAQ SECTION (DIGABUNG: Background 3D + Konten) -->
-  <section class="faq-section">
-    <!-- 1. 3D Background Canvas -->
-    <canvas id="faq3dCanvas"></canvas>
-    
-    <!-- 2. Floating 3D Elements -->
-    <div class="faq-3d-elements">
-      <div class="floating-shape shape-1"></div>
-      <div class="floating-shape shape-2"></div>
-      <div class="floating-shape shape-3"></div>
-      <div class="floating-shape shape-4"></div>
-      <div class="floating-shape shape-5"></div>
-      <div class="floating-shape shape-6"></div>
-    </div>
-
-    <!-- 3. FAQ Content Container (Z-Index Tinggi agar di atas canvas) -->
+  <!-- FAQ CONTENT -->
+  <section class="faq-main-section">
     <div class="faq-container">
       
-      <!-- KATEGORI: UMUM -->
+      <!-- UMUM -->
       <div class="faq-category">
-        <h3 class="faq-category-title"><i class="fa-solid fa-circle-info"></i> Umum</h3>
+        <h3 class="faq-category-title">
+          <i class="fa-solid fa-circle-info"></i>
+          Umum
+        </h3>
         <div class="faq-list">
           <div class="faq-item">
-            <button class="faq-question"><span>Apa itu Teknovistafest?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Teknovistafest adalah Kompetisi berskala Nasional yang di selenggarakan setiap tahun oleh HIMA D4 Teknik Informatika, Fakultas Vokasi, Universitas Airlangga.</p></div>
+            <button class="faq-question">
+              <span>Apa itu Teknovistafest?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Teknovistafest adalah festival inovasi teknologi yang diselenggarakan di Universitas Airlangga Kampus C, Surabaya. Acara ini menghadirkan kompetisi, talkshow inspiratif, dan networking session dengan para ahli dan praktisi teknologi.</p>
+            </div>
           </div>
+
           <div class="faq-item">
-            <button class="faq-question"><span>Kapan dan di mana acara dilaksanakan?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Teknovistafest 2026 akan dilaksanakan pada <strong>25 Juli - 26 September 2026</strong> di <strong>Unair Kampus C Surabaya</strong>.</p></div>
+            <button class="faq-question">
+              <span>Kapan dan di mana acara dilaksanakan?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Teknovistafest 2026 akan dilaksanakan pada <strong>26 September 2026</strong> di <strong>Universitas Airlangga Kampus C, Surabaya</strong>.</p>
+            </div>
           </div>
+
           <div class="faq-item">
-            <button class="faq-question"><span>Siapa saja yang bisa mengikuti acara ini?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Teknovistafest terbuka untuk <strong>mahasiswa, profesional, dan masyarakat umum</strong> yang tertarik dengan teknologi dan inovasi. Tidak ada batasan usia.</p></div>
+            <button class="faq-question">
+              <span>Siapa saja yang bisa mengikuti acara ini?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Teknovistafest terbuka untuk <strong>mahasiswa, profesional, dan masyarakat umum</strong> yang tertarik dengan teknologi dan inovasi. Tidak ada batasan usia.</p>
+            </div>
           </div>
+
           <div class="faq-item">
-            <button class="faq-question"><span>Apakah ada biaya pendaftaran?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p><strong>GRATIS!</strong> Pendaftaran untuk menghadiri Teknovistafest 2026 sepenuhnya gratis. Namun, untuk kompetisi tertentu mungkin ada biaya pendaftaran yang akan diinformasikan terpisah.</p></div>
+            <button class="faq-question">
+              <span>Apakah ada biaya pendaftaran?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p><strong>GRATIS!</strong> Pendaftaran untuk menghadiri Teknovistafest 2026 sepenuhnya gratis. Namun, untuk kompetisi tertentu mungkin ada biaya pendaftaran yang akan diinformasikan terpisah.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apakah acara ini offline atau online?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Acara dilaksanakan secara <strong>hybrid</strong> (offline dan online). Peserta dapat memilih untuk hadir langsung di venue atau mengikuti secara virtual melalui live streaming.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- KATEGORI: KOMPETISI -->
+      <!-- KOMPETISI -->
       <div class="faq-category">
-        <h3 class="faq-category-title"><i class="fa-solid fa-trophy"></i> Kompetisi</h3>
+        <h3 class="faq-category-title">
+          <i class="fa-solid fa-trophy"></i>
+          Kompetisi
+        </h3>
         <div class="faq-list">
           <div class="faq-item">
-            <button class="faq-question"><span>Kategori lomba apa saja yang tersedia?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Saat ini kami memiliki 1 kategori kompetisi: <strong>IT Preneur: AI Business Competition</strong>. Kompetisi ini menantang peserta untuk merancang ide bisnis inovatif berbasis Artificial Intelligence.</p></div>
+            <button class="faq-question">
+              <span>Kategori lomba apa saja yang tersedia?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Saat ini kami memiliki 1 kategori kompetisi: <strong>IT Preneur: AI Business Competition</strong>. Kompetisi ini menantang peserta untuk merancang ide bisnis inovatif berbasis Artificial Intelligence.</p>
+            </div>
           </div>
+
           <div class="faq-item">
-            <button class="faq-question"><span>Bagaimana tahapan kompetisi?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Kompetisi dilaksanakan dalam 2 tahap:<br><strong>Tahap 1:</strong> Pengumpulan Abstrak (25 Juli - 11 Agustus 2026)<br><strong>Tahap 2:</strong> Pengumpulan Full Paper (setelah pengumuman lolos tahap 1).</p></div>
+            <button class="faq-question">
+              <span>Bagaimana tahapan kompetisi?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Kompetisi dilaksanakan dalam beberapa tahap:<br>
+              <strong>Tahap 1:</strong> Pengumpulan Abstrak (25 Juli - 11 Agustus 2026)<br>
+              <strong>Tahap 2:</strong> Pengumpulan Karya Final Gelombang 1 (17-31 Agustus 2026) & Gelombang 2 (1-5 September 2026)<br>
+              <strong>Grand Final:</strong> 26 September 2026</p>
+            </div>
           </div>
+
           <div class="faq-item">
-            <button class="faq-question"><span>Berapa jumlah anggota dalam satu tim?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Setiap tim terdiri dari <strong>2-3 orang</strong>. Anda bisa membentuk tim sendiri atau mendaftar sebagai individu dan kami akan membantu mencarikan tim.</p></div>
+            <button class="faq-question">
+              <span>Berapa jumlah anggota dalam satu tim?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Setiap tim terdiri dari <strong>2-3 orang</strong>. Anda bisa membentuk tim sendiri atau mendaftar sebagai individu dan kami akan membantu mencarikan tim.</p>
+            </div>
           </div>
+
           <div class="faq-item">
-            <button class="faq-question"><span>Kapan deadline pendaftaran kompetisi?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Deadline pengumpulan abstrak adalah <strong>11 Agustus 2026</strong>. Pastikan Anda mendaftar dan mengirimkan abstrak sebelum tanggal tersebut.</p></div>
+            <button class="faq-question">
+              <span>Apakah ada batasan institusi untuk membentuk tim?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p><strong>Tidak ada batasan.</strong> Anggota tim bisa berasal dari universitas yang berbeda, atau bahkan kombinasi mahasiswa dan profesional.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Kapan deadline pendaftaran kompetisi?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Deadline pengumpulan abstrak adalah <strong>11 Agustus 2026</strong>. Pastikan Anda mendaftar dan mengirimkan abstrak sebelum tanggal tersebut.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Berapa total hadiah yang disediakan?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Total hadiah untuk IT Preneur: AI Business Competition adalah <strong>puluhan juta rupiah</strong> plus e-sertifikat dan kesempatan untuk presentasi di depan investor.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- KATEGORI: TALKSHOW -->
+      <!-- TALKSHOW -->
       <div class="faq-category">
-        <h3 class="faq-category-title"><i class="fa-solid fa-microphone"></i> Talkshow</h3>
+        <h3 class="faq-category-title">
+          <i class="fa-solid fa-microphone"></i>
+          Talkshow
+        </h3>
         <div class="faq-list">
           <div class="faq-item">
-            <button class="faq-question"><span>Siapa pembicara di Teknovistafest?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Kami menghadirkan <strong>1 special speaker (Anonymous)</strong> yang merupakan figur berpengaruh di industri teknologi dengan pengalaman lebih dari satu dekade. Identitas beliau akan diungkap pada hari-H acara.</p></div>
+            <button class="faq-question">
+              <span>Siapa pembicara di Teknovistafest?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Kami menghadirkan <strong>1 narasumber (Anonymous)</strong> yang merupakan figur ekslusif di bidang ekosistem startup dan bisnis IT. Identitas beliau akan diungkap pada hari-H acara.</p>
+            </div>
           </div>
+
           <div class="faq-item">
-            <button class="faq-question"><span>Apakah ada sesi Q&A dengan pembicara?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p><strong>Ya!</strong> Akan ada sesi Q&A dan networking di mana Anda bisa berinteraksi langsung dengan pembicara dan bertanya seputar topik yang dibahas.</p></div>
+            <button class="faq-question">
+              <span>Apakah ada sesi Q&A dengan pembicara?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p><strong>Ya!</strong> Akan ada sesi Q&A dan networking di mana Anda bisa berinteraksi langsung dengan pembicara dan bertanya seputar topik yang dibahas.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apakah materi talkshow akan direkam?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Ya, sesi talkshow akan direkam dan dapat diakses oleh peserta yang terdaftar. Namun, materi tertentu mungkin tidak boleh disebarluaskan sesuai kebijakan pembicara.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- KATEGORI: PENDAFTARAN -->
+      <!-- PENDAFTARAN -->
       <div class="faq-category">
-        <h3 class="faq-category-title"><i class="fa-solid fa-user-plus"></i> Pendaftaran</h3>
+        <h3 class="faq-category-title">
+          <i class="fa-solid fa-user-plus"></i>
+          Pendaftaran
+        </h3>
         <div class="faq-list">
           <div class="faq-item">
-            <button class="faq-question"><span>Bagaimana cara mendaftar?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Anda bisa mendaftar dengan mengisi formulir di halaman <a href="contact.html">Contact</a> atau klik tombol "Daftar Sekarang" di website ini. Setelah itu, tim kami akan menghubungi Anda untuk konfirmasi.</p></div>
+            <button class="faq-question">
+              <span>Bagaimana cara mendaftar?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Anda bisa mendaftar dengan mengisi formulir di halaman <a href="contact.html">Contact</a> atau klik tombol "Daftar Sekarang" di website ini. Setelah itu, tim kami akan menghubungi Anda untuk konfirmasi.</p>
+            </div>
           </div>
+
           <div class="faq-item">
-            <button class="faq-question"><span>Apakah akan ada sertifikat?</span><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p><strong>Ya!</strong> Semua peserta akan mendapatkan <strong>e-sertifikat</strong> yang dapat digunakan untuk portofolio atau keperluan akademik.</p></div>
+            <button class="faq-question">
+              <span>Apakah saya bisa mendaftar untuk kompetisi dan talkshow sekaligus?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p><strong>Tentu bisa!</strong> Anda bisa mendaftar untuk mengikuti kompetisi, menghadiri talkshow, atau keduanya. Semua terbuka untuk umum.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apakah akan ada sertifikat?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p><strong>Ya!</strong> Semua peserta akan mendapatkan <strong>e-sertifikat</strong> yang dapat digunakan untuk portofolio atau keperluan akademik.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -151,19 +490,24 @@
         <h3>Masih Ada Pertanyaan?</h3>
         <p>Jika Anda tidak menemukan jawaban yang dicari, jangan ragu untuk menghubungi tim kami.</p>
         <div class="faq-cta-buttons">
-          <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-envelope"></i> Hubungi Kami</a>
-          <a href="https://wa.me/6281234567890" class="btn btn-ghost btn-lg" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a href="contact.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-envelope"></i> Hubungi Kami
+          </a>
+          <a href="https://wa.me/6281234567890" class="btn btn-ghost btn-lg" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
         </div>
       </div>
 
-    </div> <!-- End faq-container -->
-  </section> <!-- End faq-section -->
+    </div>
+  </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-brand">
         <a href="index.html" class="logo">
-          <img src="logo/LOGO TEKNO2.png" alt="Teknovistafest Logo" class="logo-img" />
+          <img src="logo/tekновistafest.png" alt="Teknovistafest Logo" class="logo-img" />
           <span class="logo-text">Teknovista<span class="logo-accent">fest</span></span>
         </a>
         <p>Festival inovasi teknologi terbesar di Indonesia.</p>
