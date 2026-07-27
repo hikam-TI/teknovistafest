@@ -265,3 +265,158 @@
   .partner-cta { padding: 30px 20px; }
   .partner-cta p { font-size: 1rem; }
 }
+
+/* ============================================
+   LOGO SLIDER - AUTO SCROLL INFINITE SMOOTH
+   ============================================ */
+.logo-slider-section {
+  padding: 80px 5%;
+  background: linear-gradient(180deg, #00102A 0%, #011E3E 100%);
+  overflow: hidden;
+}
+
+.logo-slider-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.logo-slider-wrapper {
+  position: relative;
+  margin: 40px 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(229, 224, 195, 0.05);
+  border: 1px solid rgba(229, 224, 195, 0.2);
+  padding: 30px 0;
+}
+
+/* Track - lebar 200% untuk menampung 2 set konten */
+.logo-slider-track {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Content yang bergerak - lebar 200% */
+.logo-slider-content {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollLeft 40s linear infinite;
+  will-change: transform;
+}
+
+/* Pause saat hover */
+.logo-slider-content:hover {
+  animation-play-state: paused;
+}
+
+/* Animasi scroll ke kiri */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Setiap Logo */
+.logo-slide {
+  flex-shrink: 0;
+  width: 200px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(229, 224, 195, 0.12);
+  border: 1px solid rgba(229, 224, 195, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.logo-slide:hover {
+  background: rgba(55, 158, 245, 0.15);
+  border-color: #6CB4FF;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(55, 158, 245, 0.2);
+}
+
+/* Gambar Logo - UKURAN DIKUNCI */
+.logo-slide img {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.85);
+  opacity: 0.7;
+  transition: all 0.4s ease;
+  display: block;
+}
+
+.logo-slide:hover img {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+/* Efek fade di kiri dan kanan (gradient overlay) */
+.logo-slider-wrapper::before,
+.logo-slider-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-slider-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #011E3E, transparent);
+}
+
+.logo-slider-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #011E3E, transparent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo-slide {
+    width: 160px;
+    height: 100px;
+    padding: 12px;
+  }
+  
+  .logo-slide img {
+    max-height: 60px;
+  }
+  
+  .logo-slider-content {
+    animation-duration: 30s; /* Lebih cepat di mobile */
+  }
+  
+  .logo-slider-wrapper::before,
+  .logo-slider-wrapper::after {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-slide {
+    width: 140px;
+    height: 90px;
+    padding: 10px;
+  }
+  
+  .logo-slide img {
+    max-height: 50px;
+  }
+  
+  .logo-slider-content {
+    animation-duration: 25s; /* Lebih cepat lagi di HP kecil */
+  }
+}
